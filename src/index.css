@@ -5,9 +5,66 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: gray;
+  padding-bottom: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.whole{  
+
+  background-color: wheat;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+
+  width: 800px;
+  position: absolute;
+  top: 150px;
+  left:500px;
+  padding: 10px;
+  
+}
+.btn{
+  font-size: large;
+  border: none;
+  color: blue;
+  margin-right: 10px;
+  
+}
+
+h1{
+  color: aliceblue;
+}
+.btn1{
+
+  height: 1cm;
+  width:3cm;
+  font-size: large;
+  float: right;
+  color: blue;
+  border: none;
+  margin-right: 1cm;
+}
+
+.top{
+
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  
+}
+.a{
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: aquamarine;
+  border-radius: 5%;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.a1{
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: aquamarine;
+  color: rebeccapurple;
+  font-size: xx-large;
+  border-radius: 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
