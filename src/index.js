@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import axios from 'axios'
 
-let url = "https://f3c5-183-82-162-123.ngrok.io/initial/";
+let url = "https://5386-183-82-162-123.ngrok.io/initial/";
 
 
 function App(){
@@ -128,16 +128,64 @@ function App(){
   </div>
 }
 
+function Formy(){
+
+    let [name,setName] = useState('');
+    let [city,setCity] = useState('');
+    let [disease,setDis] = useState('');
+
+    async function apicall(e){
+
+      e.preventDefault();
+
+      if(name!=='' && city!=='' && disease!==''){
+
+        console.log(name,city,disease);
+
+        try{
+
+          await axios.get(url+'addData/'+city+'/'+name+'/'+disease)
+          setCity('');
+          setName('');
+          setDis('');
+
+        }catch(err){
+          console.log(err);
+          setCity('');
+          setName('');
+          setDis('');
+        }
+
+        
+      }else{
+        console.log('err');
+      }
+
+    }
+
+    return <div className='formy'>
+      <form onSubmit={(e)=>apicall(e)}>
+        <label className='l' >Name : </label>
+        <input  className='l' label="name" onChange={(e)=>setName(e.target.value)} value={name}/>
+        <label className='l' >Disease : </label>
+        <input  className='l' type = "text" onChange={(e)=>setDis(e.target.value)} value={disease}/>
+        <label className='l' >City : </label>
+        <input  className='l' type = "text" onChange={(e)=>setCity(e.target.value)} value={city}/>
+
+        <button type="submit" className='sub'>Submit</button>
+      </form>
+    </div>;
+
+}
+
 function Addata(){
 
-  async function addData(){
-
-
-  }
+  let [showform,setShowForm] = useState(false);
 
 
   return <>
-    <button type="button" className= "btn1" onClick={()=>addData()}>Add</button>
+    <button type="button" className= "btn1" onClick={()=>setShowForm(!showform)}>Add</button>
+    {showform && <Formy />}
   </>
 }
 
